@@ -9,26 +9,26 @@ private:
     int capacity;
     int size;
     void Increase_Size(){
-        capacity = capacity * 2;
-        int *temp = new int[capacity];
+        this->capacity = this->capacity * 2;
+        int *temp = new int[this->capacity];
 
-        for(int i = 0; i < size; i++){
-            temp[i] = ara[i];
+        for(int i = 0; i < this->size; i++){
+            temp[i] = this->ara[i];
         }
-        delete []ara;
-        ara = temp;
+        delete []this->ara;
+        this->ara = temp;
     }
 
     void Decrease_Size(){
-        capacity = capacity / 2;
-        int *tamp = new int[capacity];
-        for(int i = 0; i < size; i++){
-            tamp[i] = ara[i];
+        this->capacity = this->capacity / 2;
+        int *tamp = new int[this->capacity];
+        for(int i = 0; i < this->size; i++){
+            tamp[i] = this->ara[i];
         }
-        delete[] ara;
-        ara = tamp;
+        delete []this->ara;
+        this->ara = tamp;
         
-        if(size == capacity / 2){
+        if(this->size == this->capacity / 2){
             Decrease_Size();
         }
     }
@@ -36,83 +36,83 @@ private:
 public:
     //this is my constructor function...
     Array(){
-        ara = new int[1];
-        capacity = 1;
-        size = 0;
+        this->ara = new int[1];
+        this->capacity = 1;
+        this->size = 0;
     }
 
     //ekement add at back...
     void Push_Back(int item){
-        if(capacity == size){
+        if(this->capacity == this->size){
             Increase_Size();
         }
-        ara[size] = item;
-        size++;
+        this->ara[this->size] = item;
+        this->size++;
 
-        if(size == capacity / 2){
+        if(this->size == this->capacity / 2){
             Decrease_Size();
         }
     }
 
     //element add at index...
     void Insert_Index(int index, int item){
-        if(index == capacity){
+        if(index == this->capacity){
             Increase_Size();
         }
 
-        for(int i = size - 1; i >= index; i--){
-            ara[i + 1] = ara[i];
+        for(int i = this->size - 1; i >= index; i--){
+            this->ara[i + 1] = this->ara[i];
         }
-        ara[index] = item;
-        size++;
+        this->ara[index] = item;
+        this->size++;
 
-        if(size == capacity / 2){
+        if(this->size == this->capacity / 2){
             Decrease_Size();
         }
     }
 
     //print the array...
     void Print(){
-        for(int i = 0; i < size; i++){
-            cout<<ara[i] <<" ";
+        for(int i = 0; i < this->size; i++){
+            cout<<this->ara[i] <<" ";
         }
         cout<<"\n";
     }
 
     //element extract by index...
     int getIndexElement(int index){
-        if(index >= size){
+        if(index >= this->size){
             cout<<"Error index " <<index <<" is out of bound! \n";
             return -1;
         }
-        return ara[index];
+        return this->ara[index];
     }
 
     //element remove in back...
     void Pop_Back() {
-        if(size == 0){
+        if(this->size == 0){
             cout<<"Current size is 0" <<"\n";
             return;
         }
-        size--;
+        this->size--;
 
-        if(size == capacity / 2){
+        if(this->size == this->capacity / 2){
             Decrease_Size();
         }
     }
 
     //element remove by index...
     void Erase_Element(int index){
-        if(index >= size){
+        if(index >= this->size){
             cout<<"Index does not exit" <<"\n";
             return;
         }
-        for(int i = index + 1; i < size; i++){
-            ara[i - 1] = ara[i];
+        for(int i = index + 1; i < this->size; i++){
+            this->ara[i - 1] = this->ara[i];
         }
-        size--;
+        this->size--;
 
-        if(size == capacity / 2){
+        if(this->size == this->capacity / 2){
             Decrease_Size();
         }
     }
