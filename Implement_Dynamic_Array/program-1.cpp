@@ -20,12 +20,14 @@ private:
     }
 
 public:
+    //this is my constructor function...
     Array(){
         ara = new int[1];
         capacity = 1;
         size = 0;
     }
 
+    //ekement add at back...
     void Push_Back(int item){
         if(capacity == size){
             Increase_Size();
@@ -34,6 +36,7 @@ public:
         size++;
     }
 
+    //element add at index...
     void Insert_Index(int index, int item){
         if(index == capacity){
             Increase_Size();
@@ -46,6 +49,7 @@ public:
         size++;
     }
 
+    //print the array...
     void Print(){
         for(int i = 0; i < size; i++){
             cout<<ara[i] <<" ";
@@ -53,6 +57,7 @@ public:
         cout<<"\n";
     }
 
+    //element extract by index...
     int getIndexElement(int index){
         if(index >= size){
             cout<<"Error index " <<index <<" is out of bound! \n";
@@ -60,7 +65,17 @@ public:
         }
         return ara[index];
     }
+
+    //element remove in back...
+    void Pop_Back() {
+        if(size == 0){
+            cout<<"Current size is 0" <<"\n";
+            return;
+        }
+        size--;
+    }
    
+   //return the array size...
     int getSize(){
          int count = 0;
         for(int i = 0; i < size; i++){
@@ -78,6 +93,7 @@ int main() {
     a.Push_Back(30);
     a.Push_Back(40);
     a.Push_Back(50);
+    a.Pop_Back();
 
     a.Print();
 
