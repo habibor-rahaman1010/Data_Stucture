@@ -74,6 +74,18 @@ public:
         }
         size--;
     }
+
+    //element remove by index...
+    void Erase_Element(int index){
+        if(index >= size){
+            cout<<"Index does not exit" <<"\n";
+            return;
+        }
+        for(int i = index + 1; i < size; i++){
+            ara[i - 1] = ara[i];
+        }
+        size--;
+    }
    
    //return the array size...
     int getSize(){
@@ -94,6 +106,7 @@ int main() {
     a.Push_Back(40);
     a.Push_Back(50);
     a.Pop_Back();
+    a.Erase_Element(2);
 
     a.Print();
 
