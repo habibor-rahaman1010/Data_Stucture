@@ -5,8 +5,21 @@
 using namespace std;
 
 vector<int> Insertion_Sort(vector<int>ara) {
-
-
+    for(int i = 1 ; i < ara.size(); i++){
+        int index = i;
+        while(index >= 1){
+            if(ara[index - 1] > ara[index]){
+                int temp = ara[index - 1];
+                ara[index - 1] = ara[index];
+                ara[index] = temp;
+                index--;
+            }
+            else{
+                break;
+            }
+        }
+    }
+    return ara;
 }
 
 int main() {
@@ -16,6 +29,7 @@ int main() {
     for(int i = 0; i < vect.size(); i++){
         cout<<vect[i] <<" ";
     }
+    cout<<"\n";
 
 return 0;
 }
