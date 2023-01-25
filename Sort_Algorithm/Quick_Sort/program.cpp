@@ -24,12 +24,29 @@ vector<int> Quic_Sort(vector<int>ara) {
     }
     vector<int>sorted_left = Quic_Sort(left);
     vector<int>sorted_right = Quic_Sort(right);
+    vector<int>sorted_array;
 
+    for(int i = 0; i < sorted_left.size(); i++){
+        sorted_array.push_back(sorted_left[i]);
+    }
+
+    sorted_array.push_back(ara[pivot]);
+
+    for(int i = 0; i < sorted_right.size(); i++){
+        sorted_array.push_back(sorted_right[i]);
+    }
+
+    return sorted_array;
 }
 
 int main() {
     vector<int>ara = {11, 9, 3, 15, 14, 18, 12, 22, 34, 56, 21};
     vector<int>vect = Quic_Sort(ara);
+    
+    for(int i = 0; i < vect.size(); i++){
+        cout<<vect[i] <<" ";
+    }
+    cout<<"\n";
 
 return 0;
 }
