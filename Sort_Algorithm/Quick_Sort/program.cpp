@@ -15,10 +15,10 @@ vector<int> Quic_Sort(vector<int>ara) {
         if(i == pivot){
             continue;
         }
-        if(ara[i] <= pivot){
+        if(ara[i] <= ara[pivot]){
             left.push_back(ara[i]);
         }
-        if(ara[i] > pivot){
+        if(ara[i] > ara[pivot]){
             right.push_back(ara[i]);
         }
     }
