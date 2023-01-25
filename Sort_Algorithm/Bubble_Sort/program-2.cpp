@@ -6,7 +6,7 @@ using namespace std;
 
 vector<int> Bubble_Sort(vector<int>ara){
     for(int i = 0; i < ara.size(); i++){
-        for(int j = 0; j < i; j++){
+        for(int j = 0; j <= i - 1; j++){
             if(ara[j] > ara[i]){
                 int temp = ara[j];
                 ara[j] = ara[i];
