@@ -58,17 +58,6 @@ class LinkedList {
             a->next = newNode;
         }
 
-        //delete at head in linked list...
-        void deleteAtHead(){
-            if(head == NULL){
-                return;
-            }
-            Node *a = head;
-            head = a->next;
-            delete a;
-            length--;
-        }
-
         //search elemnt in linked list...
         void Search(int item){
             Node *a = head;
@@ -125,6 +114,17 @@ class LinkedList {
             }
             return lenght;
         }
+
+        //delete at head in linked list...
+        void deleteAtHead(){
+            if(head == NULL){
+                return;
+            }
+            length--;
+            Node *a = head;
+            head = a->next;
+            delete a; 
+        }
 };
 
 int main() {
@@ -143,7 +143,7 @@ int main() {
     cout<<"length is: " <<l.getLength() <<"\n";
     l.deleteAtHead();
     l.Travers();
-   cout<<"length is: " <<l.getLength() <<"\n";
+    cout<<"length is: " <<l.getLength() <<"\n";
 
 return 0;
 }
