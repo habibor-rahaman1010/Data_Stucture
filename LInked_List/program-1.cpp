@@ -15,6 +15,13 @@ class LinkedList {
         LinkedList(){
             head = NULL;
         }
+
+        Node *Create_Node(int item){
+            Node *newNode = new Node;
+            newNode->data = item;
+            newNode->next = NULL;
+            return newNode;
+        }
 };
 
 int main() {
