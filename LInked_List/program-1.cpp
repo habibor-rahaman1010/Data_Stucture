@@ -23,8 +23,16 @@ class LinkedList {
             return newNode;
         }
 
+        //Insert at head...
         void InsertAtHead(int item){
-
+            if(head == NULL){
+                head = Create_Node(item);
+                return;
+            }
+            Node *newNode = Create_Node(item);
+            Node *a = head;
+            newNode->next = a;
+            a = newNode;
         }
 };
 
