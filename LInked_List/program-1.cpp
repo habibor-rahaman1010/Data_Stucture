@@ -34,6 +34,16 @@ class LinkedList {
             newNode->next = a;
             a = newNode;
         }
+
+        //Travers the linked list...
+        void Travers() {
+            Node *a = head;
+            while(a != NULL){
+                cout<<a->data <<" ";
+                a = a->next;
+            }
+            cout<<"\n";
+        }
 };
 
 int main() {
