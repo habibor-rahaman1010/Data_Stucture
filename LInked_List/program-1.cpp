@@ -53,6 +53,24 @@ class LinkedList {
             }
         }
 
+        //search all possible ocuurence...
+        void SearchAllOcuurence(int item){
+            Node *a = head;
+            bool flag = false;
+            int index = 0;
+            while(a != NULL){
+                if(a->data == item){
+                    cout<<item <<" is find out at index " <<index <<"\n"; 
+                    flag = true;
+                }
+                index++;
+                a = a->next;
+            }
+            if(!flag){
+                cout<<item <<" is not found index is " << -1 <<"\n";
+            }
+        }
+
         //Travers the linked list...
         void Travers() {
             Node *a = head;
@@ -70,9 +88,12 @@ int main() {
     l.InsertAtHead(20);
     l.InsertAtHead(30);
     l.InsertAtHead(40);
+    l.InsertAtHead(10);
     l.InsertAtHead(50);
     l.Travers();
     l.Search(10);
+    l.Travers();
+    l.SearchAllOcuurence(10);
 
 return 0;
 }
