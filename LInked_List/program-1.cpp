@@ -34,6 +34,13 @@ class LinkedList {
             head = newNode;
         }
 
+        //Insert any index item in linked list...
+        void InsertItemIndex(int index, int item){
+            if(index == 0){
+                InsertAtHead(item);
+            }
+        }
+
         //search elemnt in linked list...
         void Search(int item){
             Node *a = head;
@@ -80,6 +87,16 @@ class LinkedList {
             }
             cout<<"\n";
         }
+
+        //get length in linked list...
+        int getLength(){
+            int lenght = 0;
+            while(head != NULL){
+                head = head->next;
+                lenght++;
+            }
+            return lenght;
+        }
 };
 
 int main() {
@@ -94,6 +111,7 @@ int main() {
     l.Search(10);
     l.Travers();
     l.SearchAllOcuurence(10);
+    cout<<"length is: " <<l.getLength() <<"\n";
 
 return 0;
 }
