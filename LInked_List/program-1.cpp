@@ -25,14 +25,13 @@ class LinkedList {
 
         //Insert at head...
         void InsertAtHead(int item){
+            Node *newNode = Create_Node(item);
             if(head == NULL){
-                head = Create_Node(item);
+                head = newNode;
                 return;
             }
-            Node *newNode = Create_Node(item);
-            Node *a = head;
-            newNode->next = a;
-            a = newNode;
+            newNode->next = head;
+            head = newNode;
         }
 
         //Travers the linked list...
@@ -47,7 +46,14 @@ class LinkedList {
 };
 
 int main() {
+    LinkedList l;
+    l.InsertAtHead(10);
+    l.InsertAtHead(20);
+    l.InsertAtHead(30);
+    l.InsertAtHead(40);
+    l.InsertAtHead(50);
 
+    l.Travers();
 
 return 0;
 }
