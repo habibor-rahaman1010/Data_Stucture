@@ -22,6 +22,10 @@ class LinkedList {
             newNode->next = NULL;
             return newNode;
         }
+
+        void InsertAtHead(int item){
+
+        }
 };
 
 int main() {
