@@ -12,8 +12,10 @@ class Node {
 class LinkedList {
     public:
         Node * head;
+        int length;
         LinkedList(){
             head = NULL;
+            length = 0;
         }
 
         Node *Create_Node(int item){
@@ -25,6 +27,7 @@ class LinkedList {
 
         //Insert at head...
         void InsertAtHead(int item){
+            length++;
             Node *newNode = Create_Node(item);
             if(head == NULL){
                 head = newNode;
@@ -36,9 +39,34 @@ class LinkedList {
 
         //Insert any index item in linked list...
         void InsertItemIndex(int index, int item){
+            if(index < 0 || index > length){
+                return;
+            }
             if(index == 0){
                 InsertAtHead(item);
+                return;
             }
+            Node *a = head;
+            int currentIndex = 0;
+            while(currentIndex != index - 1){
+                a = a->next;
+                currentIndex++;
+            }
+            length++;
+            Node *newNode = Create_Node(item);
+            newNode->next = a->next;
+            a->next = newNode;
+        }
+
+        //delete at head in linked list...
+        void deleteAtHead(){
+            if(head == NULL){
+                return;
+            }
+            Node *a = head;
+            head = a->next;
+            delete a;
+            length--;
         }
 
         //search elemnt in linked list...
@@ -109,9 +137,13 @@ int main() {
     l.InsertAtHead(50);
     l.Travers();
     l.Search(10);
+    l.InsertItemIndex(6, 100);
     l.Travers();
     l.SearchAllOcuurence(10);
     cout<<"length is: " <<l.getLength() <<"\n";
+    l.deleteAtHead();
+    l.Travers();
+   cout<<"length is: " <<l.getLength() <<"\n";
 
 return 0;
 }
