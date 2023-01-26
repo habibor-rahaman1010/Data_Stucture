@@ -27,8 +27,8 @@ class LinkedList {
 
         //Insert at head...
         void InsertAtHead(int item){
-            length++;
             Node *newNode = Create_Node(item);
+            length++;
             if(head == NULL){
                 head = newNode;
                 return;
@@ -56,6 +56,17 @@ class LinkedList {
             Node *newNode = Create_Node(item);
             newNode->next = a->next;
             a->next = newNode;
+        }
+
+        //delete at head in linked list...
+        void deleteAtHead(){
+            if(head == NULL){
+                return;
+            }
+            length--;
+            Node *a = head;
+            head = a->next;
+            delete a;
         }
 
         //search elemnt in linked list...
@@ -114,17 +125,6 @@ class LinkedList {
             }
             return lenght;
         }
-
-        //delete at head in linked list...
-        void deleteAtHead(){
-            if(head == NULL){
-                return;
-            }
-            length--;
-            Node *a = head;
-            head = a->next;
-            delete a; 
-        }
 };
 
 int main() {
@@ -135,6 +135,7 @@ int main() {
     l.InsertAtHead(40);
     l.InsertAtHead(10);
     l.InsertAtHead(50);
+    l.InsertAtHead(70);
     l.Travers();
     l.Search(10);
     l.InsertItemIndex(6, 100);
