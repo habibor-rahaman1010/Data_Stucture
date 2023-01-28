@@ -31,7 +31,6 @@ int main() {
     for(int i = 0; i < vect.size(); i++){
         cout<<vect[i] <<" ";
     }
-    cout<<"\n";
 
 return 0;
 }
