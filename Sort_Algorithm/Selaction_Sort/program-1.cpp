@@ -7,7 +7,6 @@ using namespace std;
 vector<int> Selection_Sort(vector<int>ara){
     int min_index;
     int temp;
-    // [12, 34, 13, 3, 45, 23, 12, 22, 47, 18]
     for(int i = 0; i < ara.size() - 1; i++){
         for(int j = i + 1; j < ara.size(); j++){
             min_index = i;
